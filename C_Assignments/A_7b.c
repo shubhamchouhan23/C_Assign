@@ -12,7 +12,7 @@ int main() {
 
 FILE *fp;
 
-int count = 1;
+int count = 0;
 char ch;
 
 fp = fopen("Strings.txt", "r");
