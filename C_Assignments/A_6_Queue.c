@@ -2,6 +2,8 @@
 Q6.What is Queue? 
    Make a program to demonstrate functionality using array.
 */
+// Queue is First in first out , Insert at rear and delete at front
+
 
 #include<stdio.h>
 #include<stdlib.h>
@@ -87,7 +89,7 @@ void dequeue() {
     }
 }
 
-void peep() {
+void peep() {   // peep is curent position of queue 
 
     int ans;
 
