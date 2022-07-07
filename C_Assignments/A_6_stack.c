@@ -1,6 +1,9 @@
 /*What is stack? What is Queue? 
   Make a program to demonstrate functionality of both concept using array.  */
 
+// Last in First out 
+
+
 #include<stdio.h>
 void push();
 void pop();
