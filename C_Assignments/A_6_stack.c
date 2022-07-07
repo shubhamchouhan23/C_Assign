@@ -14,7 +14,7 @@ void main()
     while(c!=4)
     {
         printf("\n1 push\n2 pop\n3 output\n4 Exit\n");
-        printf("ENter your choice\n");
+        printf("ENter your choice : ");
         scanf("%d",&c);
         switch(c)
         {
