@@ -1,124 +1,85 @@
-/*
-Q6.What is stack?
-   Make a program to demonstrate functionality using array.
-*/
+/*What is stack? What is Queue? 
+  Make a program to demonstrate functionality of both concept using array.  */
 
 #include<stdio.h>
-#include<stdlib.h>
-#define SIZE 5
-
-int stack[SIZE];
-int top = -1;
-
 void push();
 void pop();
-void peep();
-void change();
-
-int main() {
-    
-    
-    int choice;
-
-    while(1) {
-        printf("\nEnter the choice.\n1.push\n2.pop\n3.peep\n4.change\n5.diplay\n6.exit\n");
-        scanf("%d", &choice);
-
-        switch (choice)
-        {
-        case 1:
-            push();
-            break;
-        
-        case 2:
-            pop();
-            break;
-
-        case 3: 
-            peep();
-            break;
-        case 4:
-            change();
-            break;
-        case 5:
-            printf("Stack elements are:\n");
-            for(int i = top; i >= 0;i--) {
-                printf("%d ", stack[i]);
-            }
-            printf("\n");
-            break;
-
-        case 6:
-            exit(0);
-            break;
-        
-        default:
-            printf("Invalid input!!! Please try again\n");
-            break;
-        }
-
-    }
-
-    return 0;
-}
-
-void push() {
-    int val;
-    
-    if(top == SIZE- 1){
-        printf("Stack is full\n");
-    }
-    else 
+void output();
+int a[100],i,j,n,top=-1;
+int c=0;
+void main()
+{
+    printf("enter the element in the stack\n");
+    scanf("%d",&n);
+    while(c!=4)
     {
-        printf("Enter the number which you want to push.\n");
-        scanf("%d", &val);
-
-        top++;
-        stack[top] = val;
-        printf("Element %d is pushed in a stack\n", val);
+        printf("\n1 push\n2 pop\n3 output\n4 Exit\n");
+        printf("ENter your choice\n");
+        scanf("%d",&c);
+        switch(c)
+        {
+            case 1:
+            {
+                push();
+                break;
+            }
+            case 2:
+            {
+                pop();
+                break;
+            }
+            case 3:
+            {
+                output();
+                break;
+            }
+            case 4:
+            {
+                break;
+            }
+            default:
+            {
+                printf("Enter the valid choice");
+            }
+        };
     }
 }
 
-void pop() {
-    if(top == -1) {
-        printf("Stack is empty");
+// push operation
+void push()
+{
+    int val;
+    if(top==n-1)
+    {
+        printf("stack overflow\n");
     }
     else
     {
-        printf("Deleted element is %d\n", stack[top]);
-        top--;
+        printf("enter the value\n");
+        scanf("%d",&val);
+        top=top+1;
+        a[top]=val;
     }
 }
-
-void peep() {
-    int index, ans;
-    printf("Enter the index to know value on that index:\n");
-    scanf("%d", &index);
-
-    if(top == -1) {
-        printf("Stack is empty");
-    }
-    else 
+// pop operation
+void pop()
+{
+    if(top==-1)
     {
-        ans = stack[top-index+1];
-        printf("The value at the index is : %d\n", ans);
+        printf("underflow\n");
     }
+    else
+    top = top-1;
 }
-
-void change() {
-    int index, x;
-
-    printf("Enter the index you want to change:\n");
-    scanf("%d", &index);
-    
-    if(top == -1) {
-        printf("Stack underflow\n");
-    }
-    else 
+// output
+void output()
+{
+    for(i=top;i>=0;i--)
     {
-        printf("Enter value of new element:\n");
-        scanf("%d", &x);
-        stack[top-index+1] = x;
-        printf("Value has been sucessfully changed.\n");
+        printf("%d\n",a[i]);
+    }
+    if(top==-1)
+    {
+        printf("stack is empty\n");
     }
 }
