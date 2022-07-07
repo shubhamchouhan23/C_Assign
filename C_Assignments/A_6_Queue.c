@@ -1,6 +1,6 @@
 /*
-Q6.What is stack? What is Queue? 
-   Make a program to demonstrate functionality of both concept using array.
+Q6.What is Queue? 
+   Make a program to demonstrate functionality using array.
 */
 
 #include<stdio.h>
