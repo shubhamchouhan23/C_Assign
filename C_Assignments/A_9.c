@@ -1,23 +1,23 @@
-/*
-Q9.Write a C program which prints itself.
-*/
-
+// Write a C program which prints itself.
 #include<stdio.h>
-#include<sys/types.h>
-#include<fcntl.h>
-
-int main() {
-
-    int fp;
-    char buffer[1000];
-
-    fp = open("demo.c", O_CREAT | O_RDWR, 0777);
-
-    int len = read(fp, buffer, sizeof(buffer));
-
-    //write(fp, buffer, len);
-
-    printf("%s\n", buffer);
-
+#include<stdlib.h>
+int main()
+{
+    FILE *fp = NULL;
+    int c=0;
+    fp = fopen(__FILE__, "r"); // we have used a macro but we can also give the file name but because of .c I didn't use it
+    if(fp == NULL)
+    {
+        printf("we can't open file\n");
+        exit(1);
+    }
+    // read this till end of file
+    do
+    {
+        c = fgetc(fp);
+        printf("%c",c);
+    } while (c != EOF);
+    fclose(fp);
     return 0;
+
 }
